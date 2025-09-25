@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berber Randevu ve Fiyat Karşılaştırma</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <h1>Mahallendeki En İyi Berberi Bul</h1>
+      <p>Hizmetleri keşfet, fiyatları karşılaştır, kullanıcı yorumlarını incele ve sana en uygun berberi seç.</p>
+      <div class="hero__actions">
+        <label class="input">
+          <span class="input__label">Mahalle</span>
+          <select id="areaFilter"></select>
+        </label>
+        <label class="input">
+          <span class="input__label">Hizmet</span>
+          <select id="serviceFilter"></select>
+        </label>
+        <label class="input">
+          <span class="input__label">Berber adı</span>
+          <input id="searchInput" type="text" placeholder="Örn. Keskin Makas" />
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-live="polite">
+      <div class="stat">
+        <span class="stat__label">Seçilen hizmet için ortalama fiyat</span>
+        <strong id="averagePrice" class="stat__value">-</strong>
+      </div>
+      <div class="stat">
+        <span class="stat__label">En uygun fiyat</span>
+        <strong id="bestPrice" class="stat__value">-</strong>
+      </div>
+      <div class="stat">
+        <span class="stat__label">Toplam berber</span>
+        <strong id="barberCount" class="stat__value">-</strong>
+      </div>
+    </section>
+
+    <section class="comparison" aria-live="polite">
+      <h2>Hizmet Bazlı Fiyat Karşılaştırması</h2>
+      <div class="comparison__table-wrapper">
+        <table id="comparisonTable">
+          <thead>
+            <tr>
+              <th>Berber</th>
+              <th>Mahalle</th>
+              <th>Fiyat</th>
+              <th>Puan</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="barber-list" aria-live="polite">
+      <h2>Berber Listesi</h2>
+      <div id="barberCards" class="barber-list__grid"></div>
+    </section>
+  </main>
+
+  <template id="reviewTemplate">
+    <article class="review">
+      <header class="review__header">
+        <span class="review__user"></span>
+        <span class="review__rating"></span>
+      </header>
+      <p class="review__comment"></p>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
